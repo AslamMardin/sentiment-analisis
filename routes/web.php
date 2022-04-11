@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use \App\Http\Controllers\ApplicationControllers;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/home', [ApplicationControllers::class, 'home']);
+Route::get('/analisis', [ApplicationControllers::class, 'analisis']);
+
+Route::fallback(function(){
+	return view('tidak-ada');
 });
